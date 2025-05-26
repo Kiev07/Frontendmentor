@@ -1,0 +1,158 @@
+body {
+  background-color: hsl(148, 38%, 91%);
+  color: hsl(187, 24%, 22%);
+  font-family: "Karla", sans-serif;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+form {
+  background-color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  max-width: 550px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem 1rem;
+}
+
+@media (max-width: 450px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* 1 columna en móviles */
+  }
+
+  .full-width {
+    grid-column: span 1 !important; /* ocupa 1 columna también */
+  }
+
+  form {
+    max-width: 90%;
+    padding: 1rem;
+    
+  }
+
+  body{
+    height: 100vh;
+  }
+
+   .Query_type .query-options {
+    flex-direction: column;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+button {
+  background-color: hsl(169, 82%, 27%);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  color: white;
+  width: 100%;
+}
+
+button:hover {
+  background-color: hsl(170, 82%, 15%);
+}
+
+label {
+  font-size: 14px;
+  padding-bottom: 0.5rem;
+}
+
+input {
+  border: 1.5px solid hsl(186, 15%, 59%);
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+input:focus {
+  border: 2px solid hsl(169, 82%, 27%);
+}
+
+input:hover {
+  border: 1.5px solid hsl(169, 82%, 27%);
+  cursor: pointer;
+}
+
+textarea {
+  width: 100%;
+  padding: .5rem;
+  font-size: 14px;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  resize: none;
+  box-sizing: border-box;
+  overflow-y: hidden;  /* Oculta scroll vertical */
+  resize: none;        /* Evita que el usuario lo agrande */
+}
+
+.Query_type .query-options {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.query {
+  flex: 1;
+  padding: 0.65rem 1rem;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Estilo clásico del radio (visible) */
+.query input[type="radio"] {
+  accent-color: hsl(169, 82%, 27%);
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+
+/* Pero para cambiar el RECTÁNGULO, usamos un truco con :has() */
+@supports(selector(:has(*))) {
+  .query:has(input[type="radio"]:checked) {
+    border-color: hsl(169, 82%, 27%);
+    background-color: hsl(148, 38%, 91%);
+  }
+}
+
+.Check_box:checked{
+  background-color: hsl(169, 82%, 27%);
+}
+
+input[type="checkbox"] {
+  accent-color: hsl(169, 82%, 27%);
+}
+
+
+.error-msg{
+  color: hsl(0, 66%, 54%);
+  font-size: 13px;
+  display: none;
+}
+
+.input-error {
+  border: 1px solid hsl(0, 66%, 50%);
+}
